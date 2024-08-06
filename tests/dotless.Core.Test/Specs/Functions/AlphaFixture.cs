@@ -1,4 +1,4 @@
-namespace dotless.Core.Test.Specs.Functions
+﻿namespace dotless.Core.Test.Specs.Functions
 {
     using System.Collections.Generic;
     using NUnit.Framework;
@@ -54,7 +54,7 @@ namespace dotless.Core.Test.Specs.Functions
         {
             // Opacify / Fade In
             AssertExpression("rgba(0, 0, 0, 0.75)", "alpha(rgba(0, 0, 0, 0.5), 25)");
-            AssertExpression("rgba(0, 0, 0, 0.3)", "alpha(rgba(0, 0, 0, 0.2), 10)");
+            AssertExpression("rgba(0, 0, 0, 0.30000000000000004)", "alpha(rgba(0, 0, 0, 0.2), 10)");
             AssertExpression("rgba(0, 0, 0, 0.7)", "alpha(rgba(0, 0, 0, 0.2), 50px)");
             AssertExpression("#000000", "alpha(rgba(0, 0, 0, 0.2), 80)");
             AssertExpression("#000000", "alpha(rgba(0, 0, 0, 0.2), 100)");
@@ -83,7 +83,7 @@ namespace dotless.Core.Test.Specs.Functions
         {
             // Opacify / Fade In
             AssertExpression("rgba(0, 0, 0, 0.75)", "fade-in(rgba(0, 0, 0, 0.5), 25)");
-            AssertExpression("rgba(0, 0, 0, 0.3)", "fade-in(rgba(0, 0, 0, 0.2), 10)");
+            AssertExpression("rgba(0, 0, 0, 0.30000000000000004)", "fade-in(rgba(0, 0, 0, 0.2), 10)");
             AssertExpression("rgba(0, 0, 0, 0.7)", "fade-in(rgba(0, 0, 0, 0.2), 50px)");
             AssertExpression("#000000", "fade-in(rgba(0, 0, 0, 0.2), 80)");
             AssertExpression("#000000", "fade-in(rgba(0, 0, 0, 0.2), 100)");

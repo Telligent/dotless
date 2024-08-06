@@ -204,7 +204,7 @@
 
         private Selector MergeJoinedElements(Selector selector) {
             var elements = selector.Elements
-                .Select(e => e.Clone())
+                .Select(e => e.CloneElement())
                 .ToList();
 
             for (int i = 1; i < elements.Count; i++) {

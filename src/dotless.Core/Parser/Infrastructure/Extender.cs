@@ -93,17 +93,12 @@ namespace dotless.Core.Parser.Infrastructure
         public bool IsMatched { get; set; }
         public Extend Extend { get; private set; }
 
-        [Obsolete("Use the overload that accepts the Extend node")]
-        public Extender(Selector baseSelector)
+        public Extender(Selector baseSelector, Extend extend)
         {
+            Extend = extend;
             BaseSelector = baseSelector;
             ExtendedBy = new List<Selector>();
             IsReference = baseSelector.IsReference;
-        }
-
-        public Extender(Selector baseSelector, Extend extend) : this(baseSelector)
-        {
-            Extend = extend;
         }
 
         public static string FullPathSelector()

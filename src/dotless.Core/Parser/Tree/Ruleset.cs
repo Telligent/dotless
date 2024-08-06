@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using dotless.Core.Exceptions;
 
 namespace dotless.Core.Parser.Tree
@@ -192,7 +192,7 @@ namespace dotless.Core.Parser.Tree
             if (Evaluated) return this;
 
             // create a clone so it is non destructive
-            var clone = Clone().ReducedFrom<Ruleset>(this);
+            var clone = CloneRuleset().ReducedFrom<Ruleset>(this);
 
             clone.EvaluateRules(env);
             clone.Evaluated = true;
@@ -200,7 +200,7 @@ namespace dotless.Core.Parser.Tree
             return clone;
         }
 
-        private Ruleset Clone() {
+        private Ruleset CloneRuleset() {
             return new Ruleset(new NodeList<Selector>(Selectors), new NodeList(Rules), OriginalRuleset) {
                 IsReference = IsReference
             };

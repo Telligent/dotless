@@ -1,4 +1,5 @@
 ﻿using dotless.Core.Parser.Functions;
+using Assert = NUnit.Framework.Legacy.ClassicAssert;
 
 namespace dotless.Core.Test.Plugins
 {
@@ -17,6 +18,7 @@ namespace dotless.Core.Test.Plugins
     using dotless.Core.Parser.Infrastructure.Nodes;
     using dotless.Core.Parser;
     using dotless.Core.Importers;
+    using Assert = NUnit.Framework.Legacy.ClassicAssert;
 
     [DisplayName("Plugin A"), System.ComponentModel.Description("Plugs into A")]
     public class TestPlugin1 : IFunctionPlugin

@@ -24,7 +24,7 @@ namespace dotless.Core.Parser.Tree
 
         protected override Node CloneCore() {
             return new MixinCall(
-                new NodeList<Element>(Selector.Elements.Select(e => e.Clone())),
+                new NodeList<Element>(Selector.Elements.Select(e => e.CloneElement())),
                 Arguments,
                 Important);
         }

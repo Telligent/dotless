@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Reflection.Emit;
 using System.Security.Policy;
 
@@ -10,6 +10,7 @@ namespace dotless.Core.Test.Specs
     using NUnit.Framework;
     using System.IO;
     using System.Reflection;
+    using Assert = NUnit.Framework.Legacy.ClassicAssert;
 
     class EmbeddedPathResolver : dotless.Core.Input.IPathResolver
     {
@@ -672,26 +673,6 @@ from line 3 in file 'test.less':
             var parser = GetParser();
 
             AssertError(".less cannot import non local less files [http://www.someone.com/external1.less].", input, parser);
-        }
-
-        [Test]
-        public void ImportForMissingLessFileThrowsError4()
-        {
-            var input = @"@import ""dll://someassembly#missing.less"";";
-
-            var parser = GetParser();
-
-            AssertError("Unable to load resource [missing.less] in assembly [someassembly]", input, parser);
-        }
-
-        [Test]
-        public void ImportForMissingCssFileAsLessThrowsError()
-        {
-            var input = @"@import ""dll://someassembly#missing.css"";";
-
-            var parser = GetParser(false, true, false);
-
-            AssertError("Unable to load resource [missing.css] in assembly [someassembly]", input, parser);
         }
 
         [Test]

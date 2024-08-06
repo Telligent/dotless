@@ -2,6 +2,7 @@
 {
     using NUnit.Framework;
     using Color = Core.Parser.Tree.Color;
+    using Assert = NUnit.Framework.Legacy.ClassicAssert;
 
     public class ColorTests
     {

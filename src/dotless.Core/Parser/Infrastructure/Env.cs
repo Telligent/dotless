@@ -82,8 +82,7 @@ namespace dotless.Core.Parser.Infrastructure
                 Parser = Parser,
                 Parent = this,
                 Debug = Debug,
-                Compress = Compress,
-                DisableVariableRedefines = DisableVariableRedefines
+                Compress = Compress
             };
         }
 

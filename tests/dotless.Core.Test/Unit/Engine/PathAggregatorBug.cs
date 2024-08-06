@@ -1,7 +1,9 @@
-namespace dotless.Core.Test.Unit.Engine
+﻿namespace dotless.Core.Test.Unit.Engine
 {
     using NUnit.Framework;
     using dotless.Core.Utils;
+    using Assert = NUnit.Framework.Legacy.ClassicAssert;
+
     public class PathAggregatorBug
     {
         

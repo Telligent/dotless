@@ -18,10 +18,6 @@ namespace dotless.Core
         public ILogger Logger { get; set; }
         public bool Compress { get; set; }
         public bool Debug { get; set; }
-        [Obsolete("The Variable Redefines feature has been removed to align with less.js")]
-        public bool DisableVariableRedefines { get; set; }
-        [Obsolete("The Color Compression feature has been removed to align with less.js")]
-        public bool DisableColorCompression { get; set; }
         public bool KeepFirstSpecialComment { get; set; }
         public bool StrictMath { get; set; }
         public Env Env { get; set; }
@@ -35,7 +31,7 @@ namespace dotless.Core
         }
 
         public LessEngine(Parser.Parser parser, ILogger logger, dotless.Core.configuration.DotlessConfiguration config)
-            : this(parser, logger, config.MinifyOutput, config.Debug, config.DisableVariableRedefines, config.DisableColorCompression, config.KeepFirstSpecialComment, config.Plugins)
+            : this(parser, logger, config.MinifyOutput, config.Debug, false, false, config.KeepFirstSpecialComment, config.Plugins)
         {
         }
 

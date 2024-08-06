@@ -1,4 +1,4 @@
-namespace dotless.Core.Importers
+﻿namespace dotless.Core.Importers
 {
     using System;
     using System.Collections.Generic;
@@ -386,7 +386,6 @@ namespace dotless.Core.Importers
     /// </summary>
     class ResourceLoader : MarshalByRefObject
     {
-        private byte[] _fileContents;
         private string _resourceName;
         private string _resourceContent;
 
@@ -411,19 +410,11 @@ namespace dotless.Core.Importers
             {
                 fileDependency = match.Groups["Assembly"].Value;
 
-                LoadFromCurrentAppDomain(loader, fileDependency);
-
-                if (String.IsNullOrEmpty(loader._resourceContent))
-                    LoadFromNewAppDomain(loader, fileReader, fileDependency);
-                
+                LoadFromCurrentAppDomain(loader, fileDependency);               
             }
             catch (Exception)
             {
                 throw new FileNotFoundException("Unable to load resource [" + loader._resourceName + "] in assembly [" + fileDependency + "]");
-            }
-            finally
-            {
-                loader._fileContents = null;
             }
 
             return loader._resourceContent;
@@ -459,25 +450,5 @@ namespace dotless.Core.Importers
             }
         }
 
-        private static void LoadFromNewAppDomain(ResourceLoader loader, IFileReader fileReader, String assemblyName)
-        {
-            if (!fileReader.DoesFileExist(assemblyName))
-            {
-                throw new FileNotFoundException("Unable to locate assembly file [" + assemblyName + "]");
-            }
-
-            loader._fileContents = fileReader.GetBinaryFileContents(assemblyName);
-            
-            var domain = AppDomain.CreateDomain("LoaderDomain");
-            var assembly = domain.Load(loader._fileContents);
-
-            using (var stream = assembly.GetManifestResourceStream(loader._resourceName))
-            using (var reader = new StreamReader(stream))
-            {
-                loader._resourceContent = reader.ReadToEnd();
-            }
-
-            AppDomain.Unload(domain);
-        }  
     }
 }

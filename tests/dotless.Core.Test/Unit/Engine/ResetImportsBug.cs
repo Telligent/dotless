@@ -49,6 +49,7 @@
             FileReader.Setup(e => e.DoesFileExist(It.IsIn(new[] { BaseFileName, File1Name, File2Name }))).Returns(true);
 
             Logger.Setup(x => x.Error(It.IsAny<string>()));
+            Logger.Setup(x => x.Debug(It.IsAny<string>()));
 
             Engine = new EngineFactory().GetEngine(new CustomContainerFactory(FileReader.Object, Logger.Object));
         }

@@ -80,7 +80,7 @@
             NodeValue = VisitAndReplace(NodeValue, visitor, true);
         }
 
-        internal Element Clone() {
+        internal Element CloneElement() {
             return new Element(Combinator) { Value = Value, NodeValue = NodeValue};
         }
     }

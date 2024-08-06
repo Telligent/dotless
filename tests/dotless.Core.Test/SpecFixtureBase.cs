@@ -150,7 +150,7 @@
                 formattedLogMessages.AppendLine(logMessage);
             }
 
-            Assert.Fail("Log messages did not contain '{0}'.\nLog Messages:\n{1}", message, formattedLogMessages.ToString().TrimEnd());
+            Assert.Fail(string.Format("Log messages did not contain '{0}'.\nLog Messages:\n{1}", message, formattedLogMessages.ToString().TrimEnd()));
         }
 
         protected void AssertExpressionNoLogMessage(string message, string expression)
@@ -162,7 +162,7 @@
             {
                 if (message == logMessage)
                 {
-                    Assert.Fail("Message '{0}' found.", message);
+                    Assert.Fail(string.Format("Message '{0}' found.", message));
                 }
             }
         }
