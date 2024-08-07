@@ -6,8 +6,17 @@
     <Company>dotless project</Company>
     <Product>dotless</Product>
     <Copyright>Copyright © dotless 2010-2018</Copyright>
-    <Version>0.0.0.1</Version>
+    <Version>$(BuildNumber)</Version>
     <SignAssembly>false</SignAssembly>
+    <Title>dotless-Verint</Title>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
